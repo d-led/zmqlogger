@@ -2,7 +2,7 @@
 
 using optparse::OptionParser;
 
-static void configure_parser(OptionParser parser)
+static void configure_parser(OptionParser& parser)
 {
 	parser.description("0mq json logger");
 
@@ -10,6 +10,14 @@ static void configure_parser(OptionParser parser)
 				.dest("port")
 				.set_default("5555")
 				.help("set listening port");
+}
+
+static std::unique_ptr<g2LogWorker> current_worker=nullptr;
+
+static void init_g2log (const char* prefix,const char* location) {
+
+	current_worker.reset(new g2LogWorker(prefix, location));
+	g2::initializeLogging(current_worker.get());
 }
 
 int main(int argc, char* argv[])
@@ -27,9 +35,12 @@ int main(int argc, char* argv[])
 	std::string socket_config="tcp://*:";
 	socket_config+=port;
 
+	init_g2log(port.c_str(),"."/*todo configurable*/);
+
 	socket.bind (socket_config.c_str());
 
 	std::cout<<"Starting listening on port "<<port<<std::endl;
+	LOG(INFO)<<"Starting listening on port "<<port;
 
     while (true) {
         zmq::message_t request;

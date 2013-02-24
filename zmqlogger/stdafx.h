@@ -13,10 +13,11 @@
 #include <zmq.hpp>
 #include <string>
 #include <iostream>
+#include <memory>
 
 #include <OptionParser.h>
 
 #include <g2log.h>
-
+#include <g2logworker.h>
 
 // TODO: reference additional headers your program requires here
