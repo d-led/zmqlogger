@@ -4,7 +4,7 @@ using optparse::OptionParser;
 
 static void configure_parser(OptionParser& parser)
 {
-	parser.description("0mq json logger");
+	parser.description("0mq async logging server");
 
 	parser.add_option("-p", "--port")
 				.dest("port")
@@ -39,21 +39,24 @@ int main(int argc, char* argv[])
 
 	socket.bind (socket_config.c_str());
 
-	std::cout<<"Starting listening on port "<<port<<std::endl;
-	LOG(INFO)<<"Starting listening on port "<<port;
+	std::cout<<"Starting listening at "<<socket_config<<std::endl;
+	LOG(INFO)<<"Starting listening at "<<socket_config;
 
-    while (true) {
+	    while (true) {
         zmq::message_t request;
 
         //  Wait for next request from client
         socket.recv (&request);
-
-		std::string msg;
-		std::istringstream iss(static_cast<char*>(request.data()));
-        iss >> msg;
-		std::cout<<"received "<<msg<<std::endl;
+		std::string msg(static_cast<char*>(request.data()),request.size());
 		LOG(INFO)<<msg;
+		std::cout<<"received : "<<msg<<std::endl;
+
+        //  Send reply back to client
+        zmq::message_t reply (4);
+        memcpy ((void *) reply.data (), "ack", 4);
+        socket.send (reply);
     }
+
     return 0;
 }
 

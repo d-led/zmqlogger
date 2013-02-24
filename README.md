@@ -5,6 +5,7 @@ This is currently a research on using the [wonderful asynchronous C++11 logger g
 for a [zeromq](http://www.zeromq.org/) based logging server.
 
 The goal is to provide a possibility of asynchronous logging on client-side (using zeromq) and a fast asynchronous log message persistence on the server side using g2log.
+The log entries can be formatted client-side using [picojson](https://github.com/kazuho/picojson) with a client-side time-stamp, for example.
 
 Details
 =======
@@ -14,12 +15,13 @@ Usage
 
  * update the git submodules
  * [download g2log](https://bitbucket.org/KjellKod/g2log/overview) and extract the folder contents into the g2log folder
+ * Be sure to have the bin directory of 0mq available in the path, i.e. by extending the PATH variable in environment settings for debugging in VS
  * Open the solution with Visual Studio 2012 (i.e. Express for Desktop), compile and run (zmqlogger and then zmqloggerclient)
 
 Status
 ------
 
-Right now nothing works.
+Right simple test client and server are available. The communication is not yet asynchronous. No wrapper for the client side exist.
 
 Contributions are welcome!
 
