@@ -14,6 +14,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
+#include <sstream>
 
 #include <OptionParser.h>
 

@@ -8,7 +8,7 @@ static void configure_parser(OptionParser& parser)
 
 	parser.add_option("-p", "--port")
 				.dest("port")
-				.set_default("5555")
+				.set_default<unsigned int>(5555)
 				.help("set listening port");
 }
 
@@ -32,10 +32,10 @@ int main(int argc, char* argv[])
 	optparse::Values options = parser.parse_args(argc, argv);
 
 	std::string port=options.get("port");
-	std::string socket_config="tcp://*:";
+	std::string socket_config="tcp://*:"; //todo:configurable as a whole (?)
 	socket_config+=port;
 
-	init_g2log(port.c_str(),"."/*todo configurable*/);
+	init_g2log(port.c_str(),""/*todo configurable*/);
 
 	socket.bind (socket_config.c_str());
 
@@ -47,12 +47,12 @@ int main(int argc, char* argv[])
 
         //  Wait for next request from client
         socket.recv (&request);
-        std::cout << "Received Hello" << std::endl;
 
-        //  Send reply back to client
-        zmq::message_t reply (5);
-        memcpy ((void *) reply.data (), "World", 5);
-        socket.send (reply);
+		std::string msg;
+		std::istringstream iss(static_cast<char*>(request.data()));
+        iss >> msg;
+		std::cout<<"received "<<msg<<std::endl;
+		LOG(INFO)<<msg;
     }
     return 0;
 }
