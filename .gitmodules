@@ -1,0 +1,6 @@
+[submodule "picojson"]
+	path = picojson
+	url = git://github.com/kazuho/picojson.git
+[submodule "cpp-optparse"]
+	path = cpp-optparse
+	url = git://github.com/weisslj/cpp-optparse.git
