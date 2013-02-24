@@ -1,8 +1,5 @@
 #include "stdafx.h"
 
-#include <cstdlib>
-#include <stdlib.h>
-
 int main ()
 {
     //  Prepare our context and socket
