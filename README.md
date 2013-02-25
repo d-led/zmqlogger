@@ -21,7 +21,15 @@ Usage
 Status
 ------
 
-Right simple test client and server are available. The communication is not yet asynchronous. No wrapper for the client side exist.
+ * Right simple test client and server are available
+ * The communication is asynchronous
+ * No wrapper for the client side exist
+ * A deadlock has to be solved
+
+Todo
+----
+
+ * Create a client library (deployable as a couple of dlls, perhaps)
 
 Contributions are welcome!
 
