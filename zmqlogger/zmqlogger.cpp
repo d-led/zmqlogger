@@ -17,12 +17,8 @@ static void configure_parser(OptionParser& parser)
 		.help("termination token secret word");
 }
 
-static std::unique_ptr<g2LogWorker> current_worker;
-
 static void init_g2log (const char* prefix,const char* location) {
-
-	current_worker.reset(new g2LogWorker(prefix, location));
-	g2::initializeLogging(current_worker.get());
+	g2::initializeLogging(new g2LogWorker(prefix, location));
 }
 
 template <typename TReq>
