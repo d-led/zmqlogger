@@ -14,7 +14,7 @@ Usage
 -----
 
  * update the git submodules
- * [download g2log](https://bitbucket.org/KjellKod/g2log/overview) and extract the folder contents into the g2log folder
+ * [download or checkout g2log](https://bitbucket.org/KjellKod/g2log/overview) and extract the folder contents into the g2log folder
  * Be sure to have the bin directory of 0mq available in the path, i.e. by extending the PATH variable in environment settings for debugging in VS
  * Open the solution with Visual Studio 2012 (i.e. Express for Desktop), compile and run (zmqlogger and then zmqloggerclient)
 
