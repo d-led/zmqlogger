@@ -21,5 +21,12 @@ int main ()
         socket.send (request);
     }
 
+	zmq::socket_t kill_socket (context, ZMQ_PUSH);
+    kill_socket.connect ("tcp://localhost:6666");
+	std::string msg("mutabor");
+	zmq::message_t request (msg.length());
+	memcpy ((void *) request.data (), msg.c_str(), msg.length());
+	kill_socket.send (request);
+
     return 0;
 }
