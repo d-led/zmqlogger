@@ -7,6 +7,8 @@
 
 #include "targetver.h"
 
+#include "targetver.h"
+
 #include <stdio.h>
 #include <tchar.h>
 
@@ -17,7 +19,10 @@
 #include <ctime>
 #include <chrono>
 #include <sstream>
+#include <thread>
 
 #include <picojson.h>
+
+#include <process.h>
 
 // TODO: reference additional headers your program requires here
