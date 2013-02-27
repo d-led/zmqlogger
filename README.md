@@ -24,7 +24,6 @@ Status
  * Right simple test client and server are available
  * The communication is asynchronous
  * No wrapper for the client side exist
- * A deadlock has to be solved
 
 Todo
 ----
