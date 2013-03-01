@@ -6,3 +6,6 @@
 	path = cpp-optparse
 	url = git://github.com/weisslj/cpp-optparse.git
 	ignore = dirty
+[submodule "cppzmq"]
+	path = cppzmq
+	url = git://github.com/zeromq/cppzmq.git
