@@ -21,14 +21,10 @@ Usage
 Status
 ------
 
- * Right simple test client and server are available
+ * A simple example client and logging server are available
  * The communication is asynchronous
- * No wrapper for the client side exist
-
-Todo
-----
-
- * Create a client library (deployable as a couple of dlls, perhaps)
+ * No wrapper for the client side exists
+ * Logging API and logging back-end are not abstracted
 
 Contributions are welcome!
 
