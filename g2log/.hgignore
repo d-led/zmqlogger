@@ -1,0 +1,4 @@
+build
+build_clang
+gtest-1.7.0
+3rdParty/gtest/gtest-1.6.0__stripped
