@@ -12,3 +12,12 @@
 [submodule "premake"]
 	path = premake
 	url = https://github.com/d-led/premake-meta-cpp.git
+[submodule "deps/picojson"]
+	path = deps/picojson
+	url = https://github.com/kazuho/picojson.git
+[submodule "deps/cpp-optparse"]
+	path = deps/cpp-optparse
+	url = https://github.com/weisslj/cpp-optparse.git
+[submodule "deps/cppzmq"]
+	path = deps/cppzmq
+	url = https://github.com/zeromq/cppzmq.git
