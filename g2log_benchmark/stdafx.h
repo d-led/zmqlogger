@@ -10,8 +10,8 @@
 #include <stdio.h>
 #include <tchar.h>
 
-#include <g2log.h>
-#include <g2logworker.h>
+#include <g2log.hpp>
+#include <iostream>
 
 #include <chrono>
 
