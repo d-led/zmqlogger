@@ -98,7 +98,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CHANGE_G3LOG_DEBUG_TO_DBUG;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\deps\g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b\src;C:\Program Files\ZeroMQ 3.2.4\include;..\..\..\deps\cpp-optparse;..\..\..\deps\cppzmq;..\..\..\deps\picojson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\deps\g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b\src;..\..\..\deps\cpp-optparse;..\..\..\deps\cppzmq;..\..\..\deps\picojson;C:\Program Files (x86)\ZeroMQ 3.2.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
     </ClCompile>
@@ -106,7 +106,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Program Files\ZeroMQ 3.2.4\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\ZeroMQ 3.2.4\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -115,7 +115,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CHANGE_G3LOG_DEBUG_TO_DBUG;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\deps\g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b\src;C:\Program Files\ZeroMQ 3.2.4\include;..\..\..\deps\cpp-optparse;..\..\..\deps\cppzmq;..\..\..\deps\picojson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\deps\g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b\src;..\..\..\deps\cpp-optparse;..\..\..\deps\cppzmq;..\..\..\deps\picojson;C:\Program Files\ZeroMQ 3.2.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
     </ClCompile>
@@ -132,7 +132,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CHANGE_G3LOG_DEBUG_TO_DBUG;RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\deps\g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b\src;C:\Program Files\ZeroMQ 3.2.4\include;..\..\..\deps\cpp-optparse;..\..\..\deps\cppzmq;..\..\..\deps\picojson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\deps\g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b\src;..\..\..\deps\cpp-optparse;..\..\..\deps\cppzmq;..\..\..\deps\picojson;C:\Program Files (x86)\ZeroMQ 3.2.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -145,7 +145,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Program Files\ZeroMQ 3.2.4\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\ZeroMQ 3.2.4\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -154,7 +154,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CHANGE_G3LOG_DEBUG_TO_DBUG;RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\deps\g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b\src;C:\Program Files\ZeroMQ 3.2.4\include;..\..\..\deps\cpp-optparse;..\..\..\deps\cppzmq;..\..\..\deps\picojson;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\deps\g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b\src;..\..\..\deps\cpp-optparse;..\..\..\deps\cppzmq;..\..\..\deps\picojson;C:\Program Files\ZeroMQ 3.2.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>

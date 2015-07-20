@@ -6,19 +6,38 @@ make_solution 'zmqlogger'
 platforms { "x64" }
 
 g3log_root = 'deps/g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b/src'
-zeromq_root = [[C:\Program Files\ZeroMQ 3.2.4\]]
+zeromq_root = {
+	x32 = [[C:\Program Files (x86)\ZeroMQ 3.2.4\]],
+	x64 = [[C:\Program Files\ZeroMQ 3.2.4\]]
+}
 
 includedirs {
 	g3log_root,
-	path.join(zeromq_root,'include'),
 	'deps/cpp-optparse',
 	'deps/cppzmq',
 	'deps/picojson',
 }
 
-libdirs {
-	path.join(zeromq_root,'lib'),
-}
+-- libzmq config
+configuration {'x32','windows'}
+	includedirs { path.join(zeromq_root.x32,'include') }
+	libdirs { path.join(zeromq_root.x32,'lib') }
+configuration {'x64','windows'}
+	includedirs { path.join(zeromq_root.x64,'include') }
+	libdirs { path.join(zeromq_root.x64,'lib') }
+configuration '*'
+
+function deploy_libzmq()
+	configuration {'x32','windows'}
+		postbuildcommands {
+			[[xcopy "]]..path.getabsolute(path.join(zeromq_root.x32,"bin/*.dll")):gsub('/','\\')..[[" "$(TargetDir)" /s /d /y]]	
+		}
+	configuration {'x64','windows'}
+		postbuildcommands {
+			[[xcopy "]]..path.getabsolute(path.join(zeromq_root.x64,"bin/*.dll")):gsub('/','\\')..[[" "$(TargetDir)" /s /d /y]]	
+		}
+	configuration '*'
+end
 
 defines {
 	'CHANGE_G3LOG_DEBUG_TO_DBUG',
@@ -73,6 +92,8 @@ make_console_app('zmqlogger',{
 })
 
 	link_zeromq_g3log()
+	deploy_libzmq()
+	
 	links 'cpp-optparse'
 
 ------------------------------------
