@@ -1,14 +1,10 @@
 #include "stdafx.h"
 
-static void init_g2log (const char* prefix,const char* location) {
-    using namespace g2;
-    auto defaultHandler = LogWorker::createWithDefaultLogger(prefix,location);
-    g2::initializeLogging(defaultHandler.worker.get());
-}
-
 int main(int argc, char* argv[])
 {
-    init_g2log("g2log_benchmark","");
+    using namespace g2; // --> g3
+    auto defaultHandler = LogWorker::createWithDefaultLogger(argv[0], "");
+    g2::initializeLogging(defaultHandler.worker.get());
 
     typedef std::chrono::high_resolution_clock Clock;
     
