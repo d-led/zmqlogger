@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 	configure_parser(parser);
 	optparse::Values options = parser.parse_args(argc, argv);
 
-	std::string port=options.get("port");
+	std::string port=options["port"];
 	std::string socket_config="tcp://*:";
 	socket_config+=port;
 

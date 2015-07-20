@@ -7,9 +7,6 @@
 
 #include "targetver.h"
 
-#include <stdio.h>
-#include <tchar.h>
-
 #include <zmq.hpp>
 #include <string>
 #include <iostream>

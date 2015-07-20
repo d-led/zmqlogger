@@ -7,9 +7,6 @@
 
 #include "targetver.h"
 
-#include <stdio.h>
-#include <tchar.h>
-
 #include <g2log.hpp>
 #include <iostream>
 

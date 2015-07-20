@@ -8,7 +8,12 @@ platforms { "x64" }
 g3log_root = 'deps/g3log-7cf42c535c3be83eec1ff0c374a626a2b45a033b/src'
 zeromq_root = {
 	x32 = [[C:\Program Files (x86)\ZeroMQ 3.2.4\]],
-	x64 = [[C:\Program Files\ZeroMQ 3.2.4\]]
+	x64 = [[C:\Program Files\ZeroMQ 3.2.4\]],
+	osx = [[/usr/local/Cellar/zeromq/4.1.2/]]
+}
+zeromq_lib = {
+	win = 'libzmq-v110-mt-3_2_4',
+	osx = 'zmq'
 }
 
 includedirs {
@@ -25,6 +30,9 @@ configuration {'x32','windows'}
 configuration {'x64','windows'}
 	includedirs { path.join(zeromq_root.x64,'include') }
 	libdirs { path.join(zeromq_root.x64,'lib') }
+configuration 'macosx'
+	includedirs { path.join(zeromq_root.osx,'include') }
+	libdirs { path.join(zeromq_root.osx,'lib') }	
 configuration '*'
 
 function deploy_libzmq()
@@ -47,27 +55,36 @@ function link_zeromq_g3log()
 	configuration 'windows'
 		links {
 			'dbghelp',
-			'g3log',
-			'libzmq-v110-mt-3_2_4'
+			zeromq_lib.win
+		}
+	configuration 'macosx'
+		links {
+			zeromq_lib.osx,
 		}
 	configuration '*'
+		links 'g3log'
 end
 
 ------------------------------------
 make_static_lib('g3log',{
 	g3log_root..'/**.cpp'
 })
-
+	make_cpp11()
 	configuration 'windows'
 		excludes {
 			g3log_root..'/g3log/crashhandler_unix.cpp'
+		}
+	configuration 'not windows'
+		excludes {
+			g3log_root..'/g3log/*windows*.cpp'			
 		}
 	configuration '*'
 
 ------------------------------------
 make_static_lib('cpp-optparse',{
 	'deps/cpp-optparse/**.cpp'
-})
+})	
+	make_cpp11()
 
 ------------------------------------
 make_console_app('g2log_benchmark',{
@@ -75,6 +92,7 @@ make_console_app('g2log_benchmark',{
 	'g2log_benchmark/*.cpp'
 })
 
+	make_cpp11()
 	configuration 'windows'
 		links {
 			'dbghelp',
@@ -91,6 +109,7 @@ make_console_app('zmqlogger',{
 	'zmqlogger/*.cpp'
 })
 
+	make_cpp11()
 	link_zeromq_g3log()
 	deploy_libzmq()
 	
@@ -102,5 +121,6 @@ make_console_app('zmqloggerclient',{
 	'zmqloggerclient/*.cpp'
 })
 
+	make_cpp11()
 	link_zeromq_g3log()
 
