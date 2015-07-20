@@ -18,7 +18,6 @@
 
 #include <OptionParser.h>
 
-#include <g2log.h>
-#include <g2logworker.h>
+#include <g2log.hpp>
 
 // TODO: reference additional headers your program requires here

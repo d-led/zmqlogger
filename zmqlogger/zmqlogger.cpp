@@ -12,10 +12,6 @@ static void configure_parser(OptionParser& parser)
 		.help("set listening port");
 }
 
-static void init_g2log (const char* prefix,const char* location) {
-	g2::initializeLogging(new g2LogWorker(prefix, location));
-}
-
 template <typename TReq>
 std::string to_string(TReq&& request)
 {
@@ -43,7 +39,9 @@ int main(int argc, char* argv[])
 	std::string socket_config="tcp://*:";
 	socket_config+=port;
 
-	init_g2log(port.c_str(),"");
+    using namespace g2; // --> g3
+    auto defaultHandler = LogWorker::createWithDefaultLogger(argv[0], "");
+    g2::initializeLogging(defaultHandler.worker.get());
 
 	// main socket
 	zmq::socket_t log_socket(context, ZMQ_PULL);
